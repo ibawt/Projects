@@ -1,7 +1,8 @@
+import Data.Map
+
 main = do
      string <- getLine
-     let vowels = only_vowels string
-     putStrLn $ show (length (only_vowels string))
+     putStrLn $ show (toList $ fromListWith (+) [ (c,1) | c <- (only_vowels string) ] )
 
 vowels = "aeiou"
 only_vowels x = [ c | c <- x, c `elem` vowels ]
